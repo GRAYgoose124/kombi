@@ -1,5 +1,6 @@
-from .ops import compose, pipe
-from .compat import compatible_methods
+from .compat import *
+from .infer import *
+from .ops import *
 
 
 class A:
@@ -19,6 +20,7 @@ class B:
 
 
 def main():
+    """ """
     compose(
         print,
         pipe(
@@ -28,8 +30,7 @@ def main():
         ),
     )(1)
 
-
-compatible_methods([A, B], display=True)
+    compatible_methods([A, B], display=True)
 
 
 if __name__ == "__main__":

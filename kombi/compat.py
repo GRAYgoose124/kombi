@@ -82,3 +82,6 @@ def compatible_methods(classes: List[Type], display=False) -> List[str]:
         print(to_strs(chains))
 
     return chains
+
+
+__all__ = ["compatible_methods"]
