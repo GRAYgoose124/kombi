@@ -23,4 +23,24 @@ def infer_lambda_return_type(lambda_str, resolved_type=None):
                 return None
 
 
-__all__ = ["infer_lambda_return_type"]
+class LambdaTypeInferer:
+    def __init__(self, lambda_func):
+        self.lambda_func = lambda_func
+        self.test_values = [0, 1, 1.0, "", [], (), {}, set(), True, None]
+
+    def infer_types(self):
+        valid_types = set()
+        for value in self.test_values:
+            try:
+                self.lambda_func(value)
+                valid_types.add(type(value))
+            except Exception:
+                pass
+        return valid_types
+
+    def check_relative_to_caller(self, caller):
+        valid_types = self.infer_types()
+        caller_sig = inspect.signature(caller)
+
+
+__all__ = ["infer_lambda_return_type", "LambdaTypeInferer"]

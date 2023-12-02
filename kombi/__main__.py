@@ -32,6 +32,10 @@ def main():
 
     compatible_methods([A, B], display=True)
 
+    lambda_func = lambda x: x + 1  # Example lambda function
+    inferer = LambdaTypeInferer(lambda_func)
+    print(inferer.infer_types())
+
 
 if __name__ == "__main__":
     main()
