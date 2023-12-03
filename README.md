@@ -1,0 +1,1 @@
+IDK, some functional stuff bro don't ask me why there are monads forming in Python. It wasn't me, I swear.
